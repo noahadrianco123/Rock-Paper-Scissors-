@@ -10,6 +10,11 @@
     <div id="game-card">
         <div id="menu">
             <h1>RPS Online</h1>
+            <div class="score-setting">
+                <label>Play to: </label>
+                <input type="number" id="max-score-input" value="3" min="1" max="10">
+                <span> points</span>
+            </div>
             <button class="btn" onclick="startMode('ai')">Play vs AI</button>
             <button class="btn accent" onclick="startMode('online')">Play vs Friend (Online)</button>
         </div>
@@ -17,17 +22,24 @@
         <div id="game-area" class="hidden">
             <div class="header">
                 <span id="mode-label">Mode</span>
-                <button onclick="location.href='/'">Exit</button>
+                <span id="target-score-display">Goal: 3</span>
+                <button onclick="location.href='/'" class="exit-btn">Exit</button>
             </div>
             
             <div class="score-board">
-                <div>You: <span id="p1-score">0</span></div>
-                <div>Opponent: <span id="p2-score">0</span></div>
+                <div>You: <span id="p1-score" class="score-num">0</span></div>
+                <div>Opponent: <span id="p2-score" class="score-num">0</span></div>
+            </div>
+
+            <div id="clash-display" class="hidden">
+                <div id="my-clash-move" class="clash-icon"></div>
+                <div id="vs-text">VS</div>
+                <div id="opp-clash-move" class="clash-icon"></div>
             </div>
 
             <div id="status-text">Ready?</div>
 
-            <div class="choices">
+            <div class="choices" id="choice-buttons">
                 <button class="choice-btn" onclick="play('rock')">🪨</button>
                 <button class="choice-btn" onclick="play('paper')">📄</button>
                 <button class="choice-btn" onclick="play('scissors')">✂️</button>
@@ -40,7 +52,14 @@
         </div>
     </div>
 
+    <div id="game-over-screen" class="hidden overlay">
+        <h1 id="end-message">You Win!</h1>
+        <button class="btn accent" onclick="requestRematch()">Rematch</button>
+        <button class="btn exit-btn" onclick="location.href='/'">Exit</button>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
