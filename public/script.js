@@ -19,20 +19,22 @@ function startMode(selectedMode) {
     document.getElementById('menu').classList.add('hidden');
     document.getElementById('game-area').classList.remove('hidden');
 
-    if (mode === 'online') {
+        if (mode === 'online') {
         roomId = urlParams.get('room') || Math.random().toString(36).substring(7);
         if (!urlParams.has('room')) window.history.pushState({}, '', `?room=${roomId}`);
         
         document.getElementById('mode-label').innerText = "Online";
         document.getElementById('share-container').classList.remove('hidden');
-        document.getElementById('share-url').value = window.location.href;
         
-        // Send the max score to the server when creating the room
+        const currentUrl = window.location.href;
+        document.getElementById('share-url').value = currentUrl;
+        
+        // 🪄 NEW MAGIC: Generate the QR Code using a free API
+        document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(currentUrl)}`;
+        
         socket.emit('joinGame', { roomId, maxScore });
     } else {
-        document.getElementById('target-score-display').innerText = `Goal: ${maxScore}`;
-    }
-}
+
 
 socket.on('waiting', (msg) => { document.getElementById('status-text').innerText = msg; });
 
