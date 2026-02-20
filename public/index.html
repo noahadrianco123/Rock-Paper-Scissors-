@@ -13,7 +13,6 @@
             <div class="score-setting">
                 <label>Play to: </label>
                 <input type="number" id="max-score-input" value="3" min="1" max="10">
-                <span> points</span>
             </div>
             <button class="btn" onclick="startMode('ai')">Play vs AI</button>
             <button class="btn accent" onclick="startMode('online')">Play vs Friend (Online)</button>
@@ -45,25 +44,23 @@
                 <button class="choice-btn" onclick="play('scissors')">✂️</button>
             </div>
             
-                     <div id="share-container" class="hidden">
-                <p>Send this link or scan to join:</p>
-                <input type="text" id="share-url" readonly onclick="this.select()">
-                <div style="margin-top: 15px;">
-                    <img id="qr-code" src="" alt="Room QR Code" style="border-radius: 8px; border: 4px solid #fff;">
-                </div>
+            <div id="share-container" class="hidden">
+                <p>Scan to Join:</p>
+                <img id="qr-code" src="" alt="QR Code" style="width:120px; border: 4px solid white; border-radius: 8px;">
+                <input type="text" id="share-url" readonly onclick="this.select()" style="margin-top:10px; font-size:10px;">
             </div>
-
         </div>
     </div>
 
     <div id="game-over-screen" class="hidden overlay">
         <h1 id="end-message">You Win!</h1>
         <button class="btn accent" onclick="requestRematch()">Rematch</button>
-        <button class="btn exit-btn" onclick="location.href='/'">Exit</button>
+        <button class="btn" onclick="location.href='/'">Exit Menu</button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
 
