@@ -94,7 +94,7 @@ function animateClash(p1, p2) {
     setTimeout(() => {
         clashDiv.classList.add('hidden');
         calculate(p1, p2);
-    }, 1500);
+    }, 3000);
 }
 
 function calculate(p1, p2) {
