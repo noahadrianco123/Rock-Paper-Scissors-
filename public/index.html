@@ -45,10 +45,14 @@
                 <button class="choice-btn" onclick="play('scissors')">✂️</button>
             </div>
             
-            <div id="share-container" class="hidden">
-                <p>Send this link to a friend:</p>
+                     <div id="share-container" class="hidden">
+                <p>Send this link or scan to join:</p>
                 <input type="text" id="share-url" readonly onclick="this.select()">
+                <div style="margin-top: 15px;">
+                    <img id="qr-code" src="" alt="Room QR Code" style="border-radius: 8px; border: 4px solid #fff;">
+                </div>
             </div>
+
         </div>
     </div>
 
