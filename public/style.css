@@ -1,29 +1,17 @@
-body { background: #0f172a; color: white; font-family: system-ui; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-#game-card { background: #1e293b; padding: 2rem; border-radius: 1rem; width: 320px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); position: relative; }
+body { background: #0f172a; color: white; font-family: system-ui; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+#game-card { background: #1e293b; padding: 1.5rem; border-radius: 1rem; width: 300px; text-align: center; box-shadow: 0 20px 25px rgba(0,0,0,0.5); }
 .hidden { display: none !important; }
-.btn { display: block; width: 100%; padding: 1rem; margin: 10px 0; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+.btn { display: block; width: 100%; padding: 0.8rem; margin: 10px 0; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
 .accent { background: #38bdf8; color: #0f172a; }
-.exit-btn { background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; border: none; }
-.score-setting { margin-bottom: 20px; font-size: 1.2rem; }
-#max-score-input { width: 50px; font-size: 1.2rem; text-align: center; border-radius: 5px; border: 1px solid #38bdf8; background: #0f172a; color: white; }
-.header { display: flex; justify-content: space-between; align-items: center; color: #94a3b8; margin-bottom: 10px; }
-.score-board { display: flex; justify-content: space-around; font-size: 1.2rem; margin: 10px 0; background: #0f172a; padding: 15px; border-radius: 8px; }
-.score-num { font-size: 1.8rem; font-weight: bold; color: #38bdf8; display: block; }
-.choice-btn { font-size: 2.5rem; background: #334155; border: none; border-radius: 12px; cursor: pointer; padding: 10px; margin: 5px; transition: 0.2s; }
-.choice-btn:hover { background: #475569; transform: translateY(-3px); }
-#status-text { margin: 15px 0; color: #f8fafc; font-weight: bold; height: 30px; font-size: 1.1rem; }
-#share-url { width: 90%; background: #0f172a; border: 1px solid #334155; color: #38bdf8; padding: 8px; border-radius: 4px; }
-
-/* Animations & Clash Display */
-#clash-display { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; height: 80px; }
-.clash-icon { font-size: 4rem; }
-#vs-text { font-size: 1.5rem; font-weight: bold; color: #ef4444; }
-.slide-in-left { animation: slideLeft 0.5s forwards ease-out; }
-.slide-in-right { animation: slideRight 0.5s forwards ease-out; }
-
-@keyframes slideLeft { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-@keyframes slideRight { from { transform: translateX(50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-/* Overlay */
+.exit-btn { background: #ef4444; color: white; border: none; padding: 4px 8px; border-radius: 4px; }
+.score-board { display: flex; justify-content: space-around; margin: 10px 0; background: #0f172a; padding: 10px; border-radius: 8px; }
+.score-num { font-size: 1.5rem; color: #38bdf8; font-weight: bold; }
+.choice-btn { font-size: 2rem; background: #334155; border: none; border-radius: 12px; cursor: pointer; padding: 10px; margin: 4px; }
+#clash-display { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px 0; height: 60px; }
+.clash-icon { font-size: 3rem; }
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
-#end-message { font-size: 3rem; margin-bottom: 20px; color: #38bdf8; }
+.slide-in-left { animation: slideLeft 0.5s forwards; }
+.slide-in-right { animation: slideRight 0.5s forwards; }
+@keyframes slideLeft { from { transform: translateX(-40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideRight { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
