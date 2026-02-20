@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Multiplayer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-card">
+        <div id="menu">
+            <h1>RPS Online</h1>
+            <button class="btn" onclick="startMode('ai')">Play vs AI</button>
+            <button class="btn accent" onclick="startMode('online')">Play vs Friend (Online)</button>
+        </div>
 
+        <div id="game-area" class="hidden">
+            <div class="header">
+                <span id="mode-label">Mode</span>
+                <button onclick="location.href='/'">Exit</button>
+            </div>
+            
+            <div class="score-board">
+                <div>You: <span id="p1-score">0</span></div>
+                <div>Opponent: <span id="p2-score">0</span></div>
+            </div>
+
+            <div id="status-text">Ready?</div>
+
+            <div class="choices">
+                <button class="choice-btn" onclick="play('rock')">🪨</button>
+                <button class="choice-btn" onclick="play('paper')">📄</button>
+                <button class="choice-btn" onclick="play('scissors')">✂️</button>
+            </div>
+            
+            <div id="share-container" class="hidden">
+                <p>Send this link to a friend:</p>
+                <input type="text" id="share-url" readonly onclick="this.select()">
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
